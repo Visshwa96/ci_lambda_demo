@@ -1,5 +1,12 @@
-{
-  "repo": "ci-demo",
-  "status": "successVisshwayes11111111",
-  "time": 121
-}
+[
+  {"repo": "demo-repo", "status": "success", "time": 120},
+  {"repo": "demo-repo", "status": "success", "time": 95},
+  {"repo": "demo-repo", "status": "failure", "time": 200},
+  {"repo": "demo-repo", "status": "success", "time": 110},
+  {"repo": "demo-repo", "status": "failure", "time": 180},
+  {"repo": "demo-repo", "status": "success", "time": 75},
+  {"repo": "demo-repo", "status": "success", "time": 130},
+  {"repo": "demo-repo", "status": "failure", "time": 210},
+  {"repo": "demo-repo", "status": "success", "time": 90},
+  {"repo": "demo-repo", "status": "success", "time": 140}
+]
