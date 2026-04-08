@@ -1,12 +1,73 @@
 [
-  {"repo": "demo-repo", "status": "success", "time": 120},
-  {"repo": "demo-repo", "status": "success", "time": 95},
-  {"repo": "demo-repo", "status": "failure", "time": 200},
-  {"repo": "demo-repo", "status": "success", "time": 110},
-  {"repo": "demo-repo", "status": "failure", "time": 180},
-  {"repo": "demo-repo", "status": "success", "time": 75},
-  {"repo": "demo-repo", "status": "success", "time": 130},
-  {"repo": "demo-repo", "status": "failure", "time": 210},
-  {"repo": "demo-repo", "status": "success", "time": 90},
-  {"repo": "demo-repo", "status": "success", "time": 140}
+  {"repo":"frontend","status":"success","time":80},
+  {"repo":"frontend","status":"failure","time":150},
+  {"repo":"frontend","status":"success","time":70},
+  {"repo":"frontend","status":"success","time":95},
+  {"repo":"frontend","status":"failure","time":180},
+
+  {"repo":"backend","status":"success","time":200},
+  {"repo":"backend","status":"success","time":180},
+  {"repo":"backend","status":"failure","time":250},
+  {"repo":"backend","status":"success","time":210},
+  {"repo":"backend","status":"failure","time":300},
+
+  {"repo":"api","status":"success","time":90},
+  {"repo":"api","status":"success","time":100},
+  {"repo":"api","status":"failure","time":170},
+  {"repo":"api","status":"success","time":85},
+  {"repo":"api","status":"failure","time":160},
+
+  {"repo":"auth","status":"success","time":60},
+  {"repo":"auth","status":"failure","time":140},
+  {"repo":"auth","status":"success","time":75},
+  {"repo":"auth","status":"success","time":65},
+  {"repo":"auth","status":"failure","time":155},
+
+  {"repo":"payments","status":"success","time":220},
+  {"repo":"payments","status":"failure","time":310},
+  {"repo":"payments","status":"success","time":200},
+  {"repo":"payments","status":"success","time":240},
+  {"repo":"payments","status":"failure","time":330},
+
+  {"repo":"notifications","status":"success","time":50},
+  {"repo":"notifications","status":"success","time":55},
+  {"repo":"notifications","status":"failure","time":120},
+  {"repo":"notifications","status":"success","time":65},
+  {"repo":"notifications","status":"failure","time":130},
+
+  {"repo":"frontend","status":"success","time":88},
+  {"repo":"frontend","status":"success","time":92},
+  {"repo":"frontend","status":"failure","time":175},
+  {"repo":"frontend","status":"success","time":85},
+  {"repo":"frontend","status":"success","time":78},
+
+  {"repo":"backend","status":"success","time":195},
+  {"repo":"backend","status":"failure","time":270},
+  {"repo":"backend","status":"success","time":205},
+  {"repo":"backend","status":"success","time":215},
+  {"repo":"backend","status":"failure","time":290},
+
+  {"repo":"api","status":"success","time":110},
+  {"repo":"api","status":"failure","time":165},
+  {"repo":"api","status":"success","time":95},
+  {"repo":"api","status":"success","time":105},
+  {"repo":"api","status":"failure","time":180},
+
+  {"repo":"auth","status":"success","time":70},
+  {"repo":"auth","status":"failure","time":145},
+  {"repo":"auth","status":"success","time":80},
+  {"repo":"auth","status":"success","time":68},
+  {"repo":"auth","status":"failure","time":150},
+
+  {"repo":"payments","status":"success","time":230},
+  {"repo":"payments","status":"failure","time":320},
+  {"repo":"payments","status":"success","time":210},
+  {"repo":"payments","status":"success","time":250},
+  {"repo":"payments","status":"failure","time":340},
+
+  {"repo":"notifications","status":"success","time":60},
+  {"repo":"notifications","status":"failure","time":125},
+  {"repo":"notifications","status":"success","time":70},
+  {"repo":"notifications","status":"success","time":58},
+  {"repo":"notifications","status":"failure","time":135}
 ]
