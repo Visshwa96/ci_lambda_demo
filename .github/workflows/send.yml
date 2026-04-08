@@ -1,0 +1,20 @@
+name: Send JSON to Lambda
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Send JSON
+        run: |
+          curl -X POST $LAMBDA_URL \
+          -H "Content-Type: application/json" \
+          -d @data.json
+        env:
+          LAMBDA_URL: ${{ secrets.LAMBDA_URL }}
