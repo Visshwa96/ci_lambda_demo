@@ -25,5 +25,9 @@
 
    {"repo":"notifications","status":"success","env":"dev","branch":"feature","time":60},
   {"repo":"notifications","status":"failure","env":"prod","branch":"main","time":130},
+  {"repo":"notifications","status":"success","env":"staging","branch":"feature","time":75},
+
+   {"repo":"notifications","status":"success","env":"dev","branch":"feature","time":60},
+  {"repo":"notifications","status":"failure","env":"prod","branch":"main","time":130},
   {"repo":"notifications","status":"success","env":"staging","branch":"feature","time":75}
 ]
