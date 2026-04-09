@@ -1,20 +1,39 @@
-name: Send JSON to Lambda
+name: Convert & Send to InfluxDB via Lambda
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  send:
+  convert-and-send:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Send JSON
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Step 1: Fetch data.json from all directories and convert to line protocol
+      - name: Convert JSON to InfluxDB Line Protocol
         run: |
-          curl -X POST $LAMBDA_URL \
-          -H "Content-Type: application/json" \
-          -d @data.json
+          echo ">>> Running conversion script..."
+          python convert_to_line_protocol.py
+          echo ""
+          echo ">>> Line protocol output:"
+          cat line_protocol.txt
+        env:
+          DATA_DIR: data
+          OUTPUT_FILE: line_protocol.txt
+
+      # Step 2: Send line protocol data to AWS Lambda (which writes to InfluxDB)
+      - name: Send Line Protocol to Lambda
+        run: |
+          curl -X POST "$LAMBDA_URL" \
+            -H "Content-Type: text/plain" \
+            --data-binary @line_protocol.txt \
+            --fail --show-error --silent -w "\nHTTP Status: %{http_code}\n"
         env:
           LAMBDA_URL: ${{ secrets.LAMBDA_URL }}

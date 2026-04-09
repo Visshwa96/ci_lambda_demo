@@ -1,0 +1,5 @@
+[
+  {"repo": "frontend", "status": "success", "env": "prod", "branch": "main", "time": 80},
+  {"repo": "frontend", "status": "failure", "env": "prod", "branch": "main", "time": 150},
+  {"repo": "frontend", "status": "success", "env": "staging", "branch": "feature", "time": 95}
+]
