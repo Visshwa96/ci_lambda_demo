@@ -29,7 +29,7 @@ jobs:
 
       - name: Send Line Protocol to Lambda
         run: |
-          curl -X POST https://zzztssufle7uqgqysrimfvvaaq0lfzvs.lambda-url.eu-north-1.on.aws \
+          curl -X POST https://zzztssufle7uqgqysrimfvvaaq0lfzvs.lambda-url.eu-north-1.on.aws/ \
             -H "Content-Type: text/plain" \
             --data-binary @line_protocol.txt \
             --fail --show-error --silent -w "\nHTTP Status: %{http_code}\n"
