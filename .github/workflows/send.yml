@@ -1,11 +1,11 @@
-name: Convert & Send to InfluxDB via Lambda
+name: Collect & Send CI Data to InfluxDB via Lambda
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  convert-and-send:
+  collect-and-send:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,22 +16,24 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Convert JSON to InfluxDB Line Protocol
+      # Step 1: Collect data.json from all directories into one JSON file
+      - name: Collect JSON from all directories
         run: |
-          echo ">>> Running conversion script..."
+          echo ">>> Running collection script..."
           python convert_to_line_protocol.py
           echo ""
-          echo ">>> Line protocol output:"
-          cat line_protocol.txt
+          echo ">>> Combined JSON output:"
+          cat combined_data.json
         env:
           DATA_DIR: data
-          OUTPUT_FILE: line_protocol.txt
+          OUTPUT_FILE: combined_data.json
 
-      - name: Send Line Protocol to Lambda
+      # Step 2: Send combined JSON to Lambda (Lambda converts to line protocol & writes to InfluxDB)
+      - name: Send JSON to Lambda
         run: |
-          curl -X POST https://zzztssufle7uqgqysrimfvvaaq0lfzvs.lambda-url.eu-north-1.on.aws/ \
-            -H "Content-Type: text/plain" \
-            --data-binary @line_protocol.txt \
+          curl -X POST "$LAMBDA_URL" \
+            -H "Content-Type: application/json" \
+            -d @combined_data.json \
             --fail --show-error --silent -w "\nHTTP Status: %{http_code}\n"
         env:
           LAMBDA_URL: ${{ secrets.LAMBDA_URL }}
