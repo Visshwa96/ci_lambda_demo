@@ -16,7 +16,6 @@ jobs:
         with:
           python-version: '3.12'
 
-      # Step 1: Fetch data.json from all directories and convert to line protocol
       - name: Convert JSON to InfluxDB Line Protocol
         run: |
           echo ">>> Running conversion script..."
@@ -28,10 +27,9 @@ jobs:
           DATA_DIR: data
           OUTPUT_FILE: line_protocol.txt
 
-      # Step 2: Send line protocol data to AWS Lambda (which writes to InfluxDB)
       - name: Send Line Protocol to Lambda
         run: |
-          curl -X POST https://zzztssufle7uqgqysrimfvvaaq0lfzvs.lambda-url.eu-north-1.on.aws/ \
+          curl -X POST https://zzztssufle7uqgqysrimfvvaaq0lfzvs.lambda-url.eu-north-1.on.aws \
             -H "Content-Type: text/plain" \
             --data-binary @line_protocol.txt \
             --fail --show-error --silent -w "\nHTTP Status: %{http_code}\n"
